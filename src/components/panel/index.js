@@ -1,7 +1,17 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import InboxChat from "./inbox-chat";
+import { io } from "socket.io-client";
+import { connect } from "react-redux";
 
-const Panel = () => {
+const Panel = ({token}) => {
+  useEffect(()=>{
+    const socket = io.connect("https://SwiftChatServer.ahmedbahloul.repl.co",{
+      query: {token}
+    })
+    /*socket.on("connect",()=> {
+      console.log("connected...")
+    })*/
+  },[])  
   return (
       <div className="messaging">
         <div className="inbox_msg">
@@ -110,4 +120,4 @@ const Panel = () => {
   );
 };
 
-export default Panel;
+export default connect((state)=> ({token: state.user.token}))(Panel);
