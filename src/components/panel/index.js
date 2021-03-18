@@ -1,22 +1,12 @@
-import React, { useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import InboxChat from "./inbox-chat";
-import { io } from "socket.io-client";
 import { connect } from "react-redux";
+import startEventListener from "api/socket.io/startEventListener";
 
-const Panel = ({token}) => {
-  useEffect(() => {
-    const socket = io.connect(
-      "https://SwiftChatServer.ahmedbahloul.repl.co",
-      {
-        query: { token }
-      }
-    );
-    socket.on("connect", function (data) {
-      console.log("here");
-      socket.emit("join", "Hello World from client");
-    });
-  }, []);
-
+const Panel = (props) => {
+  useEffect(()=>{
+    startEventListener();
+  },[])  
   return (
     <div className="messaging">
       <div className="inbox_msg">
@@ -125,6 +115,4 @@ const Panel = ({token}) => {
   );
 };
 
-const mapStateToProps = (state) => ({ token: state.user.token })
-
-export default connect(mapStateToProps, null, null, { areStatesEqual: (next, prev) => next.user.token == prev.user.token })(Panel);
+export default connect()(Panel);

@@ -14,6 +14,7 @@ const InboxChat = ({ token }) => {
             }
         })
             .then(({ data }) => {
+                console.log(data)
                 setFriends(data)
             })
             .catch((err) => {
@@ -24,7 +25,7 @@ const InboxChat = ({ token }) => {
     return (
         <div className="inbox_chat">
             {
-                friends.map((friend) => (
+                friends.map(({name, lastMsg}) => (
                     <div className="chat_list active">
                         <div className="chat_people" >
                             <div className="chat_img">
@@ -35,12 +36,11 @@ const InboxChat = ({ token }) => {
                             </div>
                             <div className="chat_ib">
                                 <h5>
-                                    {friend} <span className="chat_date">Dec 25</span>
+                                    {name} <span className="chat_date">Dec 25</span>
                                 </h5>
                                 <p>
-                                    Test, which is a new approach to have all solutions
-                                    astrology under one roof.
-                    </p>
+                                    {lastMsg}
+                                </p>
                             </div>
                         </div>
                     </div>

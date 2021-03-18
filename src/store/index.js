@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import INIT_STATE from './INIT_STATE.js';
 import {combineReducers} from "redux"
-import setUserReducer from './reducers/setUserReducer';
+import userReducer from './reducers/userReducer';
+import friendsReducer from './reducers/friendsReducer.js';
 
-const store = createStore(combineReducers({user: setUserReducer}), INIT_STATE , applyMiddleware(thunk));
+const store = createStore(combineReducers({user: userReducer, friends: friendsReducer}), applyMiddleware(thunk));
 
 export default store;
