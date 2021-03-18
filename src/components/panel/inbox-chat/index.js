@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import FriendElem from "./friend-elem"
 
 const InboxChat = ({ token }) => {
     const [friends, setFriends] = useState([]);
@@ -25,26 +26,7 @@ const InboxChat = ({ token }) => {
     return (
         <div className="inbox_chat">
             {
-                friends.map(({name, history}) => (
-                    <div className="chat_list active">
-                        <div className="chat_people" >
-                            <div className="chat_img">
-                                <img
-                                    src="https://ptetutorials.com/images/user-profile.png"
-                                    alt="sunil"
-                                />
-                            </div>
-                            <div className="chat_ib">
-                                <h5>
-                                    {name} <span className="chat_date">Dec 25</span>
-                                </h5>
-                                <p>
-                                    {history[history.length-1]}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                ))
+                friends.map(({friendName, lastMsg}) => <FriendElem friendName={friendName} lastMsg={lastMsg} />)
             }
         </div>
     )

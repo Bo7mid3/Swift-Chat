@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import Router from "./router";
 import { connect } from "react-redux";
-import setUser from "store/actions/setUser.js"
+import setUser from "store/actions/user/setUser.js"
 import jwt_decode from "jwt-decode";
 import "sass/style.scss";
 

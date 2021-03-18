@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
-import setUser from "store/actions/setUser.js";
+import setUser from "store/actions/user/setUser.js";
 import axios from "axios";
 
 const Login = (props) => {
