@@ -15,7 +15,6 @@ const InboxChat = ({ token }) => {
             }
         })
             .then(({ data }) => {
-                console.log(data)
                 setFriends(data)
             })
             .catch((err) => {
