@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState}  from "react";
 import { connect } from "react-redux";
 import setSelected from "store/actions/selected/setSelected";
 
-const FriendElem = ({friendName, lastMsg, selected , dispatch}) => {
+const FriendElem = ({friendName, lastMsg: logLastMsg, selected , dispatch}) => {
+
+    const [ lastMsg, setLastMsg ] = useState(logLastMsg);
+
     return (
         <div className={`chat_list ${(selected==friendName) && "active"}`} onClick={()=> { dispatch(setSelected(friendName)) }}>
             <div className="chat_people" >

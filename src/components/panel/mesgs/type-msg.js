@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { getSocketId } from "utils/";
 
-const TypeMsg = ({socket}) => {
+const TypeMsg = ({socket, selected}) => {
 
     const [ message, setMessage ] = useState("");
 
     const submitMsg = () => {
-        socket.emit("message", message);
+        socket.emit("message", { content:message, to: getSocketId(selected)});
+        setMessage("")
     }
 
   return (
@@ -21,4 +23,4 @@ const TypeMsg = ({socket}) => {
   );
 };
 
-export default connect(({socket})=>({socket}))(TypeMsg);
+export default connect(({socket, selected})=>({socket, selected}))(TypeMsg);

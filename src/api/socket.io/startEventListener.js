@@ -11,6 +11,7 @@ const startEventListener = () => {
     socket.on("on friends", (onFriends) => { store.dispatch(setFriends(onFriends)) });
     socket.on("friend on", (friend) => { store.dispatch(addFriend(friend)) });
     socket.on("friend off", (friend) => { store.dispatch(delFriend(friend)) });
+    socket.on("message", (msg) => console.log(msg));
 }
 
 export default startEventListener;
