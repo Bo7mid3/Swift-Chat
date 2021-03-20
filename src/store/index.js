@@ -5,7 +5,8 @@ import userReducer from './reducers/userReducer';
 import selectedReducer from './reducers/selectedReducer';
 import friendsReducer from './reducers/friendsReducer.js';
 import socketReducer from './reducers/socketReducer';
+import lastMsgReducer from './reducers/lastMsgReducer';
 
-const store = createStore(combineReducers({ user: userReducer, friends: friendsReducer, selected: selectedReducer, socket: socketReducer }), applyMiddleware(thunk));
+const store = createStore(combineReducers({ user: userReducer, friends: friendsReducer, selected: selectedReducer, socket: socketReducer, lastMsg: lastMsgReducer }), applyMiddleware(thunk));
 
 export default store;

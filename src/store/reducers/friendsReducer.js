@@ -1,5 +1,4 @@
 const friendsReducer = (state = null , action) => {
-    console.log(action);
     switch(action.type) {
       case "SET_FRIENDS": return action.friends;
       case "ADD_FRIEND": return [...state, action.friend];

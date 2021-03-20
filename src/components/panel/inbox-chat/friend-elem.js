@@ -1,10 +1,15 @@
-import React, {useState}  from "react";
+import React, {useEffect, useState}  from "react";
 import { connect } from "react-redux";
 import setSelected from "store/actions/selected/setSelected";
 
-const FriendElem = ({friendName, lastMsg: logLastMsg, selected , dispatch}) => {
+const FriendElem = ({friendName, liveLastMsg, lastMsg: logLastMsg, selected , dispatch}) => {
 
     const [ lastMsg, setLastMsg ] = useState(logLastMsg);
+
+    useEffect(()=>{
+        if ( liveLastMsg && liveLastMsg.from == friendName )
+            setLastMsg(liveLastMsg.content);
+    },[liveLastMsg]);
 
     return (
         <div className={`chat_list ${(selected==friendName) && "active"}`} onClick={()=> { dispatch(setSelected(friendName)) }}>
@@ -28,4 +33,4 @@ const FriendElem = ({friendName, lastMsg: logLastMsg, selected , dispatch}) => {
     )
 }
 
-export default connect(({selected}) => ({ selected }))(FriendElem);
+export default connect(({selected, lastMsg}) => ({ selected, liveLastMsg: lastMsg }))(FriendElem);
