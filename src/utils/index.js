@@ -6,3 +6,9 @@ export const getSocketId = (username) => {
         return friend.id;
     return null;
 }
+
+export const getMonthShort = (number) => {
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    return months[number];
+}
