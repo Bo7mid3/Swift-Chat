@@ -7,8 +7,13 @@ export const getSocketId = (username) => {
     return null;
 }
 
-export const getMonthShort = (number) => {
+const getMonthShort = (number) => {
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     return months[number];
+}
+
+export const getLastMsgDate = (dateString) => {
+    const date = new Date(dateString)
+    return `${getMonthShort(date.getMonth())} ${date.getDate()}`;
 }

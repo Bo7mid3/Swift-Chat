@@ -19,7 +19,7 @@ const App = ({dispatch}) => {
           'Authorization': `BEARER ${token}` 
         }
       })
-      .then(()=> dispatch(setUser({data: jwt_decode(token), token})))
+      .then(()=> dispatch(setUser({data: { username: jwt_decode(token).username }, token})))
       .catch(() => {return ;})
       .finally(()=> setLoadingUser(false))
       return;
