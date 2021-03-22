@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 const Msg = (props) => {
   const { content, sender } = props.msg;
-  useEffect(()=> console.log(props), [])
   if (sender != props.username)
     return (
       <div className="incoming_msg">
@@ -32,4 +31,4 @@ const Msg = (props) => {
   );
 };
 
-export default connect((state) => ({ username: state.user.data.username }))(Msg);
+export default connect(({user : { data : { username } } }) => ({ username }))(Msg);
