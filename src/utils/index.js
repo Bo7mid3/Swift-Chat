@@ -14,6 +14,11 @@ const getMonthShort = (number) => {
 }
 
 export const getLastMsgDate = (dateString) => {
-    const date = new Date(dateString)
+    const date = new Date(dateString);
     return `${getMonthShort(date.getMonth())} ${date.getDate()}`;
+}
+
+export const getMsgDate = (dateString) => {
+    const date = new Date(dateString);
+    return `${date.getHours()}:${date.getMinutes()} | ${getMonthShort(date.getMonth())} ${date.getDate()}`;
 }

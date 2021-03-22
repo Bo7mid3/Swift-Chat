@@ -25,9 +25,9 @@ const MsgHistory = ({ selected, token, lastMsg, username }) => {
       return;
     }
     if ( lastMsg.from && lastMsg.from == selected )
-        setHistory([...msgHistory,{ content: lastMsg.content, sender: selected }])
+        setHistory([...msgHistory,{ content: lastMsg.content, sender: selected, time: lastMsg.time }])
     else if ( lastMsg.to && lastMsg.to == selected )
-        setHistory([...msgHistory,{ content: lastMsg.content, sender: username }])
+        setHistory([...msgHistory,{ content: lastMsg.content, sender: username, time: lastMsg.time }])
   }, [lastMsg]);
 
   return (

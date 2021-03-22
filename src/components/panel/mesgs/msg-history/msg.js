@@ -1,8 +1,9 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { connect } from "react-redux";
+import { getMsgDate } from "utils/"
 
 const Msg = (props) => {
-  const { content, sender } = props.msg;
+  const { content, sender, time } = props.msg;
   if (sender != props.username)
     return (
       <div className="incoming_msg">
@@ -16,7 +17,7 @@ const Msg = (props) => {
         <div className="received_msg">
           <div className="received_withd_msg">
             <p>{content}</p>
-            <span className="time_date"> 11:01 AM | Today</span>
+            <span className="time_date">{ getMsgDate(time) }</span>
           </div>
         </div>
       </div>
@@ -25,7 +26,7 @@ const Msg = (props) => {
     <div className="outgoing_msg">
       <div className="sent_msg">
         <p>{content}</p>
-        <span className="time_date"> 11:01 AM | Today</span>{" "}
+        <span className="time_date">{ getMsgDate(time) }</span>{" "}
       </div>
     </div>
   );
