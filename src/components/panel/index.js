@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
-import InboxChat from "./inbox-chat/";
+//import InboxChat from "./sub-panel/inbox-chat";
 import Mesgs from "./mesgs/"
 import { connect } from "react-redux";
 import startEventListener from "api/socket.io/startEventListener";
 import SideBar from "./side-bar";
+import SubPanel from "./sub-panel";
 
-const Panel = ({friends}) => {
+const Panel = ({ match: { url } }) => {
   useEffect(()=>{
     startEventListener();
   },[])
@@ -35,7 +36,7 @@ const Panel = ({friends}) => {
               </div>
             </div>
           </div>
-          <InboxChat />
+          <SubPanel url={url} />
         </div>
         <Mesgs />
       </div>

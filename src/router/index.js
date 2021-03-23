@@ -6,8 +6,8 @@ import ProtectedRoute from "./protected-route";
 
 const Router = (props) => (
   <BrowserRouter>
-    <ProtectedRoute exact path="/" component={Panel} />
     <Route exact path="/login" component={Login} />
+    <ProtectedRoute path="/" component={Panel} />
   </BrowserRouter>
 )
 

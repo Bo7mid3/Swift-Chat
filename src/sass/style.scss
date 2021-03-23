@@ -4,6 +4,7 @@
 .container{max-width:1170px; margin:auto;}
 img{ max-width:100%;}
 .inbox_people {
+  box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.5);
   height: 100vh;
   display: flex;
   flex-flow: column;
@@ -13,7 +14,6 @@ img{ max-width:100%;}
   width: 36%; border-right:1px solid #c4c4c4;
 }
 .inbox_msg {
-  border: 1px solid #c4c4c4;
   clear: both;
   overflow: hidden;
 }
@@ -69,6 +69,7 @@ img{ max-width:100%;}
 }
 
 .side-bar {
+  box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.5);
   float: left;
   width: 4%;
   height: 100vh;

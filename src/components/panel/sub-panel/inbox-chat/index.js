@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import FriendElem from "./friend-elem"
+import FriendElem from "./friend-elem";
 
 const InboxChat = ({ token }) => {
     const [friends, setFriends] = useState([]);
