@@ -10,7 +10,7 @@ img{ max-width:100%;}
   background: #f8f8f8 none repeat scroll 0 0;
   float: left;
   overflow: hidden;
-  width: 40%; border-right:1px solid #c4c4c4;
+  width: 36%; border-right:1px solid #c4c4c4;
 }
 .inbox_msg {
   border: 1px solid #c4c4c4;
@@ -66,6 +66,31 @@ img{ max-width:100%;}
   border-bottom: 1px solid #c4c4c4;
   margin: 0;
   padding: 18px 16px 10px;
+}
+
+.side-bar {
+  float: left;
+  width: 4%;
+  height: 100vh;
+  background-color: #05728f;
+  text-align: center;
+  position: relative;
+}
+
+.side-icon {
+  font-size: 29px;
+  padding: auto;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  display: block;
+}
+
+.bottom-side-icon-container {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
 }
 
 textarea:focus, input:focus{

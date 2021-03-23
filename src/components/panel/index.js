@@ -3,6 +3,7 @@ import InboxChat from "./inbox-chat/";
 import Mesgs from "./mesgs/"
 import { connect } from "react-redux";
 import startEventListener from "api/socket.io/startEventListener";
+import SideBar from "./side-bar";
 
 const Panel = ({friends}) => {
   useEffect(()=>{
@@ -12,10 +13,11 @@ const Panel = ({friends}) => {
   return (
     <div className="messaging">
       <div className="inbox_msg">
+        <SideBar />
         <div className="inbox_people">
           <div className="headind_srch">
             <div className="recent_heading">
-              <h4>Chats</h4>
+              <h4>Recent</h4>
             </div>
             <div className="srch_bar">
               <div className="stylish-input-group">
