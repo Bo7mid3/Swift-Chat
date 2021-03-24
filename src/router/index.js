@@ -4,10 +4,11 @@ import Login from "components/login";
 import Panel from "components/panel";
 import ProtectedRoute from "./protected-route";
 
-const Router = (props) => (
+const Router = () => (
   <BrowserRouter>
-    <Route exact path="/login" component={Login} />
-    <ProtectedRoute path="/" component={Panel} />
+    <Route exact path="/" render={()=> <Redirect to={{ pathname: "/panel" }} /> } />
+    <Route path="/login" component={Login} />
+    <ProtectedRoute path="/panel" component={Panel} />
   </BrowserRouter>
 )
 

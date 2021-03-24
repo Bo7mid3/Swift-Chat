@@ -3,7 +3,7 @@
 
 .container{max-width:1170px; margin:auto;}
 img{ max-width:100%;}
-.inbox_people {
+.sub-panel {
   box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.5);
   height: 100vh;
   display: flex;
@@ -13,14 +13,14 @@ img{ max-width:100%;}
   overflow: hidden;
   width: 36%; border-right:1px solid #c4c4c4;
 }
-.inbox_msg {
+.panel-container {
   clear: both;
   overflow: hidden;
 }
 .top_spac{ margin: 20px 0 0;}
 
 
-.recent_heading {float: left; width:40%;}
+.cur-heading {float: left; width:40%;}
 .srch_bar {
   display: inline-block;
   text-align: right;
@@ -28,12 +28,12 @@ img{ max-width:100%;}
   //padding:
 }
 
-.headind_srch{ 
+.sub-panel-header{ 
   flex: 0 1 auto;
   padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;
 }
 
-.recent_heading h4 {
+.cur-heading h4 {
   color: #05728f;
   font-size: 21px;
   margin: auto;
@@ -183,7 +183,7 @@ textarea:focus, input:focus{
   top: 11px;
   width: 33px;
 }
-.messaging { padding: 0;}
+.panel { padding: 0;}
 .msg_history {
   height: 90vh;
   overflow-y: auto;
@@ -191,4 +191,17 @@ textarea:focus, input:focus{
 
 body {
   overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color:white;
+}
+
+a.active {
+  background-color: transparent;
 }

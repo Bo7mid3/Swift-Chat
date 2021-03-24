@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 //import InboxChat from "./sub-panel/inbox-chat";
-import Mesgs from "./mesgs/"
+import Mesgs from "./main-sub-panel/mesgs"
 import { connect } from "react-redux";
 import startEventListener from "api/socket.io/startEventListener";
 import SideBar from "./side-bar";
-import SubPanel from "./sub-panel";
+import SubPanel from "../../router/sub-panel-router";
+import SrchBar from "./sub-panel/srch-bar";
 
 const Panel = ({ match: { url } }) => {
   useEffect(()=>{
@@ -12,32 +13,10 @@ const Panel = ({ match: { url } }) => {
   },[])
 
   return (
-    <div className="messaging">
-      <div className="inbox_msg">
+    <div className="panel">
+      <div className="panel-container">
         <SideBar />
-        <div className="inbox_people">
-          <div className="headind_srch">
-            <div className="recent_heading">
-              <h4>Recent</h4>
-            </div>
-            <div className="srch_bar">
-              <div className="stylish-input-group">
-                <input
-                  type="text"
-                  className="search-bar"
-                  placeholder="Search"
-                />
-                <span className="input-group-addon">
-                  <button type="button">
-                    {" "}
-                    <i className="fa fa-search" aria-hidden="true" />{" "}
-                  </button>
-                </span>{" "}
-              </div>
-            </div>
-          </div>
-          <SubPanel url={url} />
-        </div>
+        <SubPanel url={url} />
         <Mesgs />
       </div>
     </div>

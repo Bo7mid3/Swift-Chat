@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import { Route } from "react-router-dom";
-import FriendSearch from "./friend-search";
-import InboxChat from "./inbox-chat";
+import FriendSearch from "../../components/panel/sub-panel/friend-search";
+import InboxChat from "../../components/panel/sub-panel/inbox-chat";
 
 const SubPanel = ({ url }) => { 
 

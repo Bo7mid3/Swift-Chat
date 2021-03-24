@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import FriendElem from "./friend-elem";
+import SrchBar from "../srch-bar";
 
 const InboxChat = ({ token }) => {
     const [friends, setFriends] = useState([]);
@@ -23,10 +24,18 @@ const InboxChat = ({ token }) => {
     }, [])
 
     return (
-        <div className="inbox_chat">
-            {
-                friends.map(({friendName, lastMsg}) => <FriendElem friendName={friendName} lastMsg={lastMsg} />)
-            }
+        <div className="sub-panel">
+            <div className="sub-panel-header">
+                <div className="cur-heading">
+                    <h4>Recent</h4>
+                </div>
+                <SrchBar />
+            </div>
+            <div className="inbox_chat">
+                {
+                    friends.map(({ friendName, lastMsg }) => <FriendElem friendName={friendName} lastMsg={lastMsg} />)
+                }
+            </div>
         </div>
     )
 }
