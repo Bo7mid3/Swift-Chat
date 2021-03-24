@@ -2,14 +2,16 @@ import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import Msg from "./msg";
+import Spinner from "components/shared/spinner";
 
 const MsgHistory = ({ selected, token, lastMsg, username }) => {
-  const [msgHistory, setHistory] = useState([]);
+  const [msgHistory, setHistory] = useState(null);
   const didMount = useRef(false);
 
   useEffect(()=> {
     if (!selected)
         return;
+    setHistory("loading");
     axios({
         method: "get",
         url: `https://SwiftChatServer.ahmedbahloul.repl.co/history/${selected}`,
@@ -32,7 +34,7 @@ const MsgHistory = ({ selected, token, lastMsg, username }) => {
 
   return (
     <div className="msg_history">
-      {msgHistory ? msgHistory.map((msg) => <Msg msg={msg} />) : null}
+      {msgHistory=="loading" ? <Spinner /> : msgHistory ? msgHistory.map((msg) => <Msg msg={msg} />) : <div className="no-selected"><p>Select a friend to talk to </p></div> }
     </div>
   );
 };

@@ -3,9 +3,10 @@ import axios from "axios";
 import { connect } from "react-redux";
 import FriendElem from "./friend-elem";
 import SrchBar from "../srch-bar";
+import Spinner from "components/shared/spinner";
 
 const InboxChat = ({ token }) => {
-    const [friends, setFriends] = useState([]);
+    const [friends, setFriends] = useState(null);
 
     useEffect(() => {
         axios({
@@ -33,7 +34,7 @@ const InboxChat = ({ token }) => {
             </div>
             <div className="inbox_chat">
                 {
-                    friends.map(({ friendName, lastMsg }) => <FriendElem friendName={friendName} lastMsg={lastMsg} />)
+                    friends?friends.map(({ friendName, lastMsg }) => <FriendElem friendName={friendName} lastMsg={lastMsg} />):<Spinner />
                 }
             </div>
         </div>

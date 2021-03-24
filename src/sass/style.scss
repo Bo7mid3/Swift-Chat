@@ -205,3 +205,29 @@ a:hover {
 a.active {
   background-color: transparent;
 }
+
+.spinner-parent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.spinner-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  color: #05728f;
+  //transform: translate(-50%, -50%);
+}
+
+.no-selected {
+  color: #989898;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

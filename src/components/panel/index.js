@@ -4,10 +4,10 @@ import Mesgs from "./main-sub-panel/mesgs"
 import { connect } from "react-redux";
 import startEventListener from "api/socket.io/startEventListener";
 import SideBar from "./side-bar";
-import SubPanel from "../../router/sub-panel-router";
-import SrchBar from "./sub-panel/srch-bar";
+import SideSubPanel from "router/side-sub-panel-router";
+import SrchBar from "./side-sub-panel/srch-bar";
 
-const Panel = ({ match: { url } }) => {
+const Panel = () => {
   useEffect(()=>{
     startEventListener();
   },[])
@@ -16,7 +16,7 @@ const Panel = ({ match: { url } }) => {
     <div className="panel">
       <div className="panel-container">
         <SideBar />
-        <SubPanel url={url} />
+        <SideSubPanel />
         <Mesgs />
       </div>
     </div>

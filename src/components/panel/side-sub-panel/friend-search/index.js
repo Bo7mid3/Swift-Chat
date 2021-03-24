@@ -10,9 +10,9 @@ const FriendSearch = () => {
                 </div>
                 <SrchBar />
             </div>
-            <div className="friend-search">
-                <p>Type something in the search box to find users</p>
-            </div>
+            { /*<div className="friend-search">*/}
+                <div className="no-selected"><p>Type something in the search box to find users</p></div>
+            {/*</div>*/}
         </div>)
 }
 
