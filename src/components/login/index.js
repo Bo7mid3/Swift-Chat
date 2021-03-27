@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 import setUser from "store/actions/user/setUser.js";
@@ -7,6 +7,14 @@ import axios from "axios";
 const Login = (props) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const [failed, setFailed] = useState(null)
+
+  useEffect(() => {
+    if (props.location.state.signOut) {
+      localStorage.setItem("AUTH_TOKEN", null);
+      props.dispatch(setUser(null));
+    }
+  },[])
+
   const onSubmit = data => {
       const username = data.username
       axios({

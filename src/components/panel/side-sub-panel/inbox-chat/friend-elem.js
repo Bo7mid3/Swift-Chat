@@ -17,7 +17,8 @@ const FriendElem = ({friendName, liveLastMsg, lastMsg: logLastMsg, selected , di
             <div className="chat_people" >
                 <div className="chat_img">
                     <img
-                        src="https://ptetutorials.com/images/user-profile.png"
+                        className="user-img"
+                        src={`https://SwiftChatServer.ahmedbahloul.repl.co/user-img/${friendName}`}
                         alt="sunil"
                     />
                 </div>
