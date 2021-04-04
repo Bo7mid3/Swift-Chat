@@ -1,20 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import setUser from "store/actions/user/setUser.js";
 import { useHistory } from "react-router-dom";
 
-const SideBar = ({username, dispatch}) => {
+const SideBar = ({username}) => {
 
     const history = useHistory();
 
     const signOut = () => {
-        //localStorage.setItem("AUTH_TOKEN", null);
-        history.push({
-            pathname: "/login",
-            state: { signOut: true }
-        });
-        //dispatch(setUser(null));
+        history.push("/logout");
     }
 
     return (
